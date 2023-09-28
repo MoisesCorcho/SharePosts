@@ -1,4 +1,4 @@
-# MiniFrameworkMVC
+# SharePosts
 
 Este proyecto es una aplicación web con funcionalidades básicas que permiten a los usuarios registrarse y acceder al sistema. Una vez dentro, pueden realizar operaciones CRUD en publicaciones que se muestran en la pantalla principal. Es importante destacar que todas las publicaciones son visibles para todos los usuarios, independientemente de quién las haya creado. Sin embargo, solo los propietarios de una publicación tienen la capacidad de actualizarla o eliminarla.
 
