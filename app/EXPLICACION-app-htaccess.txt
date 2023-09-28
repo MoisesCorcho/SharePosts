@@ -1,0 +1,6 @@
+Options -Indexes
+
+Este archivo contiene una directiva que desactiva la opción de ver el listado de archivos en el directorio 
+si un directorio no contiene un archivo index (como index.php o index.html). En otras palabras, si alguien intenta 
+acceder a un directorio dentro de "app" que no tiene un archivo index.php u otro archivo de índice, Apache mostrará 
+un error de acceso denegado en lugar de mostrar una lista de archivos en el directorio.

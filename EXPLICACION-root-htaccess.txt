@@ -1,0 +1,42 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteRule ^$ public/ [L]
+  RewriteRule (.*) public/$1 [L]
+</IfModule>
+
+
+El archivo .htaccess y está diseñado para redirigir todas las solicitudes al directorio "public" de tu proyecto. 
+A continuación, desglosaré cada línea del código junto con ejemplos para mostrar su función:
+
+<IfModule mod_rewrite.c>: Esta línea verifica si el módulo mod_rewrite de Apache está habilitado en el servidor web. 
+Este módulo permite la manipulación de URL y es necesario para usar reglas de reescritura. Si el módulo no está habilitado, 
+estas reglas no se aplicarán.
+
+RewriteEngine on: Habilita el motor de reescritura de URL de Apache. 
+Esto activa la capacidad de Apache para procesar y aplicar las reglas de reescritura.
+
+RewriteRule ^$ public/ [L]: Esta línea establece una regla de reescritura que coincide con la URL raíz 
+(es decir, cuando no se proporciona ninguna ruta). 
+Cuando alguien visita la raíz de tu sitio web (por ejemplo, http://tusitio.com/), esta regla 
+redirige la solicitud al directorio "public". El [L] indica que esta es la última regla que 
+se debe aplicar, por lo que si coincide, no se aplicarán más reglas.
+
+RewriteRule (.*) public/$1 [L]: Esta línea es una regla más general que captura cualquier URL que no sea la raíz. 
+Redirige todas las demás solicitudes (por ejemplo, http://tusitio.com/algo) al directorio "public" 
+manteniendo la parte específica de la URL después del dominio. La expresión (.*) captura cualquier 
+cosa después del dominio y la almacena en $1, que se utiliza para construir la nueva URL. Nuevamente, [L] significa 
+que esta es la última regla que se debe aplicar.
+
+Ejemplo de cómo funciona:
+Supongamos que tienes la siguiente URL original:
+
+http://tusitio.com/algo
+
+Sin estas reglas de reescritura, Apache buscaría una carpeta o archivo llamado "algo" en la raíz de tu sitio web. 
+Sin embargo, con estas reglas de reescritura aplicadas, la URL se reescribirá de la siguiente manera:
+
+http://tusitio.com/public/algo
+
+Esto redirige la solicitud a la carpeta "public" de tu proyecto, donde generalmente se encuentra el punto de entrada 
+de tu aplicación web. Esta estructura es común en muchos marcos de trabajo PHP y es útil para mantener 
+el código del sitio web fuera de la raíz pública para mejorar la seguridad y la organización.

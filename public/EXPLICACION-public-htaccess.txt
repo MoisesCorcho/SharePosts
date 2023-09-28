@@ -1,0 +1,53 @@
+<IfModule mod_rewrite.c>
+  Options -Multiviews
+  RewriteEngine On
+  RewriteBase /proyectos/Moises/Php/shareposts/public
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule  ^(.+)$ index.php?url=$1 [QSA,L]
+</IfModule>
+ 
+EXPLICACION
+
+ Es un fragmento de un archivo .htaccess que se usa comúnmente en aplicaciones web basadas en PHP 
+ para configurar las reglas de reescritura de URL y redirigir todas las solicitudes al punto de entrada de la aplicación. 
+ A continuación, desglosaré cada línea del código junto con ejemplos para mostrar su función:
+
+1. <IfModule mod_rewrite.c>: Esta línea verifica si el módulo mod_rewrite de Apache está habilitado en el servidor web. 
+Este módulo permite la manipulación de URL y es necesario para usar reglas de reescritura. 
+Si el módulo no está habilitado, estas reglas no se aplicarán.
+
+2. Options -Multiviews: Deshabilita la opción Multiviews. Esto asegura que no se realicen coincidencias de nombres de archivos 
+parciales al manejar las solicitudes, lo que puede causar problemas con la reescritura de URL.
+
+3. RewriteEngine On: Habilita el motor de reescritura de URL. 
+Esto activa la capacidad de Apache para procesar y aplicar las reglas de reescritura.
+
+4. RewriteBase /proyectos/Moises/Php/shareposts/public: Establece la base para las URL reescritas. 
+En este caso, las URL se basarán en el directorio "/proyectos/Moises/Php/shareposts/public". 
+Esto es útil cuando tu aplicación se encuentra en un subdirectorio en lugar de la raíz del dominio.
+
+5. RewriteCond %{REQUEST_FILENAME} !-d: Esta línea es una condición que verifica si el archivo solicitado no es un directorio 
+existente (-d). Si es cierto, la siguiente regla se aplicará.
+
+6. RewriteCond %{REQUEST_FILENAME} !-f: Similar a la línea anterior, esta es una condición que verifica si el archivo 
+solicitado no es un archivo existente (-f). Si es cierto, la siguiente regla se aplicará.
+
+7. RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]: Esta es la regla principal de reescritura de URL. 
+Toma la URL solicitada y la pasa como un parámetro llamado "url" a "index.php". 
+La bandera [QSA] significa "append query string," lo que permite que las cadenas de consulta se agreguen a la URL reescrita. 
+La bandera [L] indica que esta es la última regla que se debe aplicar.
+
+Ejemplo de cómo funciona:
+Supongamos que tienes la siguiente URL original:
+
+http://tu-sitio.com/proyectos/Moises/Php/shareposts/public/post/123
+
+Sin reglas de reescritura, Apache intentaría buscar un archivo o directorio con este nombre. 
+Sin embargo, con las reglas de reescritura aplicadas, la URL se reescribirá de la siguiente manera:
+
+http://tu-sitio.com/proyectos/Moises/Php/shareposts/public/index.php?url=post/123
+
+Esto permite que tu aplicación interprete la URL reescrita y maneje la solicitud en consecuencia. 
+La variable $_GET['url'] en tu código PHP contendría el valor "post/123", que tu aplicación puede 
+usar para enrutar y mostrar el contenido adecuado.
