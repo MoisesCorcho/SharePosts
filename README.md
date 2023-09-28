@@ -23,10 +23,10 @@ Usé XAMPP para la realizacion de este proyecto, con lo cual, en YOUR_PROJECT_PA
 la carpeta htdocs
 
 
-![Texto Alternativo](../public/img/Screenshots/Shareposts1.png)
-![Texto Alternativo](../public/img/Screenshots/Shareposts2.png)
-![Texto Alternativo](../public/img/Screenshots/Shareposts3.png)
-![Texto Alternativo](../public/img/Screenshots/Shareposts4.png)
-![Texto Alternativo](../public/img/Screenshots/Shareposts5.png)
-![Texto Alternativo](../public/img/Screenshots/Shareposts6.png)
+![Texto Alternativo](public/img/Screenshots/Shareposts1.png)
+![Texto Alternativo](public/img/Screenshots/Shareposts2.png)
+![Texto Alternativo](public/img/Screenshots/Shareposts3.png)
+![Texto Alternativo](public/img/Screenshots/Shareposts4.png)
+![Texto Alternativo](public/img/Screenshots/Shareposts5.png)
+![Texto Alternativo](public/img/Screenshots/Shareposts6.png)
 
